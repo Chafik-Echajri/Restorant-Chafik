@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Napoli | Italian Cuisine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Restaurant <span class="highlight">Napoli</span></h1>
+            </div>
+            <div class="header-controls">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search Italian dishes...">
+                </div>
+                <button id="cart-btn" class="cart-btn">
+                    <span class="cart-icon">🛒</span>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Traditional Italian Cuisine, <br>Delivered Fresh</h2>
+            <p class="hero-subtitle">Pizza • Pasta • Risotto • Desserts</p>
+            <p>Authentic Italian Flavors from Naples</p>
+            <button class="hero-cta"
+                onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})">
+                Order Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <nav class="category-nav">
+        <div class="container">
+            <ul id="category-list" class="category-list">
+                <!-- Categories injected by JS -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section id="menu-section" class="menu-grid">
+            <!-- Menu items injected by JS -->
+            <div class="loading-spinner"></div>
+        </section>
+    </main>
+
+    <!-- About Section -->
+    <section class="section-padding bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">About Restaurant Napoli</h2>
+            <p class="section-desc">
+                Restaurant Napoli brings the heart of Naples to your table.
+                We prepare our dishes using authentic Italian recipes, fresh ingredients, and traditional cooking
+                techniques.
+                From wood-fired pizzas to homemade pasta, every meal is crafted with passion.
+            </p>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Visit Restaurant Napoli</h2>
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?q=32.604734,-6.280388&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div id="cart-overlay" class="cart-overlay hidden"></div>
+    <aside id="cart-drawer" class="cart-drawer closed">
+        <div class="cart-header">
+            <h2>Your Order</h2>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+
+        <div class="cart-items-container" id="cart-items">
+            <!-- Cart items injected here -->
+            <div class="empty-cart-msg">Your cart is empty</div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">0.00 MAD</span>
+            </div>
+            <div class="summary-row total-row">
+                <span>Total</span>
+                <span id="cart-total">0.00 MAD</span>
+            </div>
+
+            <button id="checkout-btn" class="checkout-btn" disabled>
+                Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delivery Details</h3>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <form id="checkout-form" class="checkout-form">
+                <div class="form-group">
+                    <label>Order Type</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="orderType" value="Delivery" checked> Delivery</label>
+                        <label><input type="radio" name="orderType" value="Pickup"> Pickup</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="customer-name" placeholder="Your Name (Optional)">
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="customer-phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group" id="address-group">
+                    <textarea id="customer-address" placeholder="Delivery Address" rows="2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea id="order-notes" placeholder="Special Instructions (e.g., No onions)" rows="1"></textarea>
+                </div>
+                <button type="submit" class="checkout-btn" id="send-order-btn">
+                    Confirm & Send WhatsApp
+                    <span class="whatsapp-icon">📱</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <h2>Restaurant <span>Napoli</span></h2>
+                <p>Authentic Italian flavors, made with love.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"
+                            onclick="document.getElementById('menu-section').scrollIntoView({behavior: 'smooth'})">Menu</a>
+                    </li>
+                    <li><a href="#"
+                            onclick="document.getElementById('cart-drawer').classList.remove('closed'); document.getElementById('cart-overlay').classList.remove('hidden')">Cart</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>📍 Khouribga, Morocco</p>
+                <p>📞 +212 618-361660</p>
+                <p>🕒 Mon-Sun: 12:00 PM - 11:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Restaurant Napoli. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="menu-data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
