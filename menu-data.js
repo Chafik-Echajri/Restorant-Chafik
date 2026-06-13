@@ -5,7 +5,7 @@ const MENU_DATA = [
         "description": "Traditional Moroccan beef kefta patty with fresh vegetables, cheese, and homemade sauce.",
         "category": "Burgers Marocains",
         "price": 45.00,
-        "image": "assets/images/menu/burger-kefta.png",
+        "image": "assets/images/menu/Burger-Kefta.png",
         "available": true,
         "tags": ["Moroccan"]
     },
