@@ -12,7 +12,7 @@ const state = {
 const CONFIG = {
     CURRENCY: 'MAD',
     WHATSAPP_NUMBER: '212618361660',
-    RESTAURANT_NAME: 'Restaurant Napoli'
+    RESTAURANT_NAME: 'Restaurant Chafik'
 };
 
 // DOM Elements
